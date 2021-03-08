@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pdfshot"
+version = "0.0.1"
+description = "A Python CLI to export pages from PDF files as images."
+authors = ["João Palmeiro <joaommpalmeiro@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+importlib-metadata = {version = "^1.0", python = "<3.8"}
+pdf2image = "^1.14.0"
+typer = {extras = ["all"], version = "^0.3.2"}
+
+[tool.poetry.dev-dependencies]
+typer-cli = "^0.0.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pdfshot = "pdfshot.console:app"
