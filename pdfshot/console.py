@@ -6,7 +6,7 @@ from pdf2image import convert_from_path
 from yaspin import yaspin
 
 from . import __description__, __name__, __version__
-from .constants import FILE_PATH, INPUT_PATH_HELP, PDF_PAGE_HELP
+from .constants import FILE_PATH, INPUT_PATH_HELP, PDF_PAGE_HELP, VERSION_HELP
 
 # Explicit application.
 app = typer.Typer()
@@ -42,7 +42,7 @@ def main(
     input_path: Path = typer.Argument(..., help=INPUT_PATH_HELP, **FILE_PATH),
     pdf_page: int = typer.Argument(..., help=PDF_PAGE_HELP),
     version: Optional[bool] = typer.Option(
-        None, "--version", callback=version_callback, is_eager=True
+        None, "--version", callback=version_callback, is_eager=True, help=VERSION_HELP
     ),
 ):
     export_single_pdf_page_as_image(input_path, pdf_page)
