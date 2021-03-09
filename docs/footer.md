@@ -12,6 +12,8 @@
   - [Data validation](https://typer.tiangolo.com/tutorial/options/callback-and-context/).
   - [Numeric validation](https://typer.tiangolo.com/tutorial/parameter-types/number/).
   - For commands, think of `git` (`git push`, `git clone`, etc.).
+- [Poetry](https://python-poetry.org/):
+  - [Outdated metadata after version bump for local package](https://github.com/python-poetry/poetry/issues/3289) (open) issue.
 
 ## References
 
