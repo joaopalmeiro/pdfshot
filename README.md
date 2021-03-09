@@ -9,46 +9,17 @@ A Python CLI to export pages from PDF files as images.
 **Usage**:
 
 ```console
-$ pdfshot [OPTIONS] COMMAND [ARGS]...
+$ pdfshot [OPTIONS] INPUT_PATH
 ```
+
+**Arguments**:
+
+* `INPUT_PATH`: The input PDF file.  [required]
 
 **Options**:
 
 * `--install-completion`: Install completion for the current shell.
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
-* `--help`: Show this message and exit.
-
-**Commands**:
-
-* `load`: Load the portal gun
-* `shoot`: Shoot the portal gun
-
-## `pdfshot load`
-
-Load the portal gun
-
-**Usage**:
-
-```console
-$ pdfshot load [OPTIONS]
-```
-
-**Options**:
-
-* `--help`: Show this message and exit.
-
-## `pdfshot shoot`
-
-Shoot the portal gun
-
-**Usage**:
-
-```console
-$ pdfshot shoot [OPTIONS]
-```
-
-**Options**:
-
 * `--help`: Show this message and exit.
 
 ## Notes
@@ -62,7 +33,11 @@ $ pdfshot shoot [OPTIONS]
 - [Typer](https://github.com/tiangolo/typer):
   - CLI arguments (_required_ by default): CLI parameters (`./myproject`, for example) passed in some specific order to the CLI application (`ls`, for example).
   - CLI options (_optional_ by default): _CLI parameters_ (`--size`, for example) passed to the CLI application with a specific name.
+  - [Data validation](https://typer.tiangolo.com/tutorial/options/callback-and-context/).
+  - [Numeric validation](https://typer.tiangolo.com/tutorial/parameter-types/number/).
+  - For commands, think of `git` (`git push`, `git clone`, etc.).
 
 ## References
 
 - [Building a Package](https://typer.tiangolo.com/tutorial/package/).
+- [Version CLI Option, is_eager](https://typer.tiangolo.com/tutorial/options/version/).
