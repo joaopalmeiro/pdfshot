@@ -1,9 +1,11 @@
 from pathlib import Path
+from typing import Optional
 
 import typer
 from pdf2image import convert_from_path
 
-from . import __description__, __version__
+from . import __description__, __name__, __version__
+from .constants import FILE_PATH, INPUT_PATH_HELP, PDF_PAGE_HELP
 
 # images = convert_from_path("test.pdf", fmt="png", dpi=300)
 
@@ -11,22 +13,21 @@ from . import __description__, __version__
 app = typer.Typer()
 
 
-# More info: https://typer.tiangolo.com/tutorial/parameter-types/path/.
+def version_callback(value: bool):
+    if value:
+        typer.echo(f"{__name__}: {__version__}")
+        raise typer.Exit()
+
+
 @app.command(help=__description__)
 def main(
-    input_path: Path = typer.Argument(
-        ...,
-        exists=True,
-        file_okay=True,
-        dir_okay=False,
-        writable=False,
-        readable=True,
-        resolve_path=True,
-        help="The input PDF file.",
-    )
+    input_path: Path = typer.Argument(..., help=INPUT_PATH_HELP, **FILE_PATH),
+    pdf_page: int = typer.Argument(..., help=PDF_PAGE_HELP,),
+    version: Optional[bool] = typer.Option(
+        None, "--version", callback=version_callback, is_eager=True
+    ),
 ):
-    if input_path.is_file():
-        typer.echo(f"Hello {input_path}")
+    typer.echo(f"Hello {input_path}")
 
 
 # Since this is a Python package, there is no need to add the block below.
