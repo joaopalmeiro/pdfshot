@@ -6,7 +6,7 @@
   - `poetry init` + `poetry install`.
   - `poetry add "typer[all]"`.
   - `which pdfshot`.
-  - `pdfshot test.pdf 1`.
+  - `pdfshot test.pdf 1` or `pdfshot test.pdf 1 --add-border`.
 - [Typer](https://github.com/tiangolo/typer):
   - CLI arguments (_required_ by default): CLI parameters (`./myproject`, for example) passed in some specific order to the CLI application (`ls`, for example).
   - CLI options (_optional_ by default): _CLI parameters_ (`--size`, for example) passed to the CLI application with a specific name.

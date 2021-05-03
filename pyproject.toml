@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pdfshot"
-version = "0.2.0"
+version = "0.2.1"
 description = "A Python CLI to export pages from PDF files as images."
 authors = ["João Palmeiro <joaommpalmeiro@gmail.com>"]
 license = "MIT"

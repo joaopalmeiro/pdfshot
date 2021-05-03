@@ -15,10 +15,11 @@ $ pdfshot [OPTIONS] INPUT_PATH PDF_PAGE
 **Arguments**:
 
 * `INPUT_PATH`: The input PDF file.  [required]
-* `PDF_PAGE`: The page number of the PDF file to export as an image.Page numbering starts at 1 (1-based indexing).  [required]
+* `PDF_PAGE`: The page number of the PDF file to export as an image. Page numbering starts at 1 (1-based indexing).  [required]
 
 **Options**:
 
+* `-b, --add-border`: Add border to the page image.  [default: False]
 * `--version`: Show the version and exit.
 * `--install-completion`: Install completion for the current shell.
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
@@ -32,6 +33,7 @@ $ pdfshot [OPTIONS] INPUT_PATH PDF_PAGE
   - `poetry init` + `poetry install`.
   - `poetry add "typer[all]"`.
   - `which pdfshot`.
+  - `pdfshot test.pdf 1` or `pdfshot test.pdf 1 --add-border`.
 - [Typer](https://github.com/tiangolo/typer):
   - CLI arguments (_required_ by default): CLI parameters (`./myproject`, for example) passed in some specific order to the CLI application (`ls`, for example).
   - CLI options (_optional_ by default): _CLI parameters_ (`--size`, for example) passed to the CLI application with a specific name.
