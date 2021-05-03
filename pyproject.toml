@@ -5,6 +5,25 @@ description = "A Python CLI to export pages from PDF files as images."
 authors = ["João Palmeiro <joaommpalmeiro@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+homepage = "https://github.com/joaopalmeiro/pdfshot"
+repository = "https://github.com/joaopalmeiro/pdfshot"
+keywords = ["pdfshot", "pdf", "screenshot", "image", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Terminals",
+    "Topic :: Utilities"
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/joaopalmeiro/pdfshot/issues"
+"Twitter" = "https://twitter.com/joaompalmeiro"
 
 [tool.poetry.dependencies]
 python = "^3.6"
