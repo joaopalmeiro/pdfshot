@@ -1,4 +1,4 @@
-.PHONY: docs readme
+.PHONY: docs readme clean
 
 CMD:=poetry run
 DOCS:=docs/
@@ -15,3 +15,6 @@ readme: docs
 	done
 	# More info: https://stackoverflow.com/a/40066559
 	cat README.md | tail -r | tail -n +2 | tail -r > README.md.new && mv README.md.new README.md
+
+clean:
+	find . -name "*.png" -type f -delete

@@ -1,6 +1,6 @@
 INPUT_PATH_HELP = "The input PDF file."
 PDF_PAGE_HELP = (
-    "The page number of the PDF file to export as an image."
+    "The page number of the PDF file to export as an image. "
     "Page numbering starts at 1 (1-based indexing)."
 )
 VERSION_HELP = "Show the version and exit."
