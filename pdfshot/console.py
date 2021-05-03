@@ -37,6 +37,8 @@ def export_single_pdf_page_as_image(
         output_name = f"{input_path.stem}_page{page_number}.png"
 
         if add_border:
+            # More info:
+            # - https://pillow.readthedocs.io/en/stable/reference/ImageOps.html#PIL.ImageOps.expand
             bimg = ImageOps.expand(images[0], border=10, fill="#000000")
             bimg.save(output_name)
         else:
@@ -55,12 +57,15 @@ def version_callback(value: bool) -> None:
 def main(
     input_path: Path = typer.Argument(..., help=INPUT_PATH_HELP, **FILE_PATH),
     pdf_page: int = typer.Argument(..., help=PDF_PAGE_HELP),
-    border: bool = typer.Option(False, "--add-border", help=BORDER_HELP),
+    border: bool = typer.Option(False, "--add-border", "-b", help=BORDER_HELP),
     version: Optional[bool] = typer.Option(
         None, "--version", callback=version_callback, is_eager=True, help=VERSION_HELP
     ),
 ) -> None:
     export_single_pdf_page_as_image(input_path, pdf_page, border)
+
+    # CLI application directory.
+    # typer.echo(typer.get_app_dir(__name__))
 
     typer.secho("\n✨ Done!", bold=True)
 
