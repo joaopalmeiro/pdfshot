@@ -3,16 +3,25 @@ from typing import Optional
 
 import typer
 from pdf2image import convert_from_path
+from PIL import ImageOps
 from yaspin import yaspin
 
 from . import __description__, __name__, __version__
-from .constants import FILE_PATH, INPUT_PATH_HELP, PDF_PAGE_HELP, VERSION_HELP
+from .constants import (
+    BORDER_HELP,
+    FILE_PATH,
+    INPUT_PATH_HELP,
+    PDF_PAGE_HELP,
+    VERSION_HELP,
+)
 
 # Explicit application.
 app = typer.Typer()
 
 
-def export_single_pdf_page_as_image(input_path: Path, page_number: int) -> None:
+def export_single_pdf_page_as_image(
+    input_path: Path, page_number: int, add_border: bool
+) -> None:
     with yaspin(text="Processing") as sp:
         images = convert_from_path(
             input_path,
@@ -26,12 +35,17 @@ def export_single_pdf_page_as_image(input_path: Path, page_number: int) -> None:
         sp.text = "Exporting"
 
         output_name = f"{input_path.stem}_page{page_number}.png"
-        images[0].save(output_name)
+
+        if add_border:
+            bimg = ImageOps.expand(images[0], border=10, fill="#000000")
+            bimg.save(output_name)
+        else:
+            images[0].save(output_name)
 
         sp.ok("✅")
 
 
-def version_callback(value: bool):
+def version_callback(value: bool) -> None:
     if value:
         typer.echo(f"{__name__}: {__version__}")
         raise typer.Exit()
@@ -41,11 +55,12 @@ def version_callback(value: bool):
 def main(
     input_path: Path = typer.Argument(..., help=INPUT_PATH_HELP, **FILE_PATH),
     pdf_page: int = typer.Argument(..., help=PDF_PAGE_HELP),
+    border: bool = typer.Option(False, "--add-border", help=BORDER_HELP),
     version: Optional[bool] = typer.Option(
         None, "--version", callback=version_callback, is_eager=True, help=VERSION_HELP
     ),
-):
-    export_single_pdf_page_as_image(input_path, pdf_page)
+) -> None:
+    export_single_pdf_page_as_image(input_path, pdf_page, border)
 
     typer.secho("\n✨ Done!", bold=True)
 
