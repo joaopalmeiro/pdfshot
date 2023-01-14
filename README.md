@@ -48,7 +48,7 @@ $ pdfshot [OPTIONS] INPUT_PATH PDF_PAGE
 - On Windows, to keep the LF line ending ([source](https://stackoverflow.com/questions/9976986/force-lf-eol-in-git-repo-and-working-copy) and [source](https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/)):
   - `git config core.eol lf`
   - `git config core.autocrlf input`
-- Check the line ending format of a file in Ubuntu: `file README.md` vs. `file pyproject.toml` ([source](https://kuantingchen04.github.io/line-endings/))
+- Check the line ending format of a file on Ubuntu: `file README.md` vs. `file pyproject.toml` ([source](https://kuantingchen04.github.io/line-endings/))
 
 ## References
 
