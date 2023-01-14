@@ -4,7 +4,10 @@ A Python CLI to export pages from PDF files as images.
 
 ## Quickstart
 
-- Install [poppler](http://macappstore.org/poppler/) (macOS): `brew install poppler`.
+- macOS:
+  - Install [poppler](http://macappstore.org/poppler/): `brew install poppler`.
+- WSL/Ubuntu:
+  - Install [poppler](https://pdf2image.readthedocs.io/en/latest/installation.html#installing-poppler): `sudo apt-get install poppler-utils`.
 
 **Usage**:
 
@@ -42,6 +45,10 @@ $ pdfshot [OPTIONS] INPUT_PATH PDF_PAGE
   - For commands, think of `git` (`git push`, `git clone`, etc.).
 - [Poetry](https://python-poetry.org/):
   - [Outdated metadata after version bump for local package](https://github.com/python-poetry/poetry/issues/3289) (open) issue.
+- On Windows, to keep the LF line ending ([source](https://stackoverflow.com/questions/9976986/force-lf-eol-in-git-repo-and-working-copy) and [source](https://www.aleksandrhovhannisyan.com/blog/crlf-vs-lf-normalizing-line-endings-in-git/)):
+  - `git config core.eol lf`
+  - `git config core.autocrlf input`
+- Check the line ending format of a file in Ubuntu: `file README.md` vs. `file pyproject.toml` ([source](https://kuantingchen04.github.io/line-endings/))
 
 ## References
 
